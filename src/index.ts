@@ -53,7 +53,8 @@ function burbuja(
   altura: number[],
   num: number
 ) {
-  let i: number, j: number;
+  let i: number;
+  let j: number;
   for (i = 2; i < num; i++) {
     for (j = 0; j < num - i; j++) {
       if (comparar(edad, altura, j, j + 1) === 1) {
