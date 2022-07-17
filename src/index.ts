@@ -66,7 +66,7 @@ function burbuja(
   }
 }
 
-let num: number = 2;
+let num: number = 4;
 let nombres: string[] = new Array(num);
 let edad: number[] = new Array(num);
 let altura: number[] = new Array(num);
