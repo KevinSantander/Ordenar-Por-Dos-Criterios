@@ -5,10 +5,11 @@ function cargarPersonas(
   num: number
 ) {
   for (let indice = 0; indice < num; indice++) {
-    nombres[indice] = prompt("Nombre: ");
+    nombres[indice] = String(prompt("Nombre: "));
     edad[indice] = Number(prompt("Edad: "));
     altura[indice] = Number(prompt("Altura (en cm): "));
   }
+  console.log();
 }
 
 function escribirPorPantalla(
@@ -47,6 +48,13 @@ function comparar(
   return comparacion;
 }
 
+function intercambiar(arreglo: any[], i: number, j: number) {
+  let aux: number;
+  aux = arreglo[i];
+  arreglo[i] = arreglo[j];
+  arreglo[j] = aux;
+}
+
 function burbuja(
   nombres: string[],
   edad: number[],
@@ -55,8 +63,8 @@ function burbuja(
 ) {
   let i: number;
   let j: number;
-  for (i = 2; i < num; i++) {
-    for (j = 0; j < num - i; j++) {
+  for (i = 0; i < num - 1; i++) {
+    for (j = 0; j < num - 1 - i; j++) {
       if (comparar(edad, altura, j, j + 1) === 1) {
         intercambiar(nombres, j, j + 1);
         intercambiar(edad, j, j + 1);
@@ -66,13 +74,15 @@ function burbuja(
   }
 }
 
-let num: number = 4;
-let nombres: string[] = new Array(num);
-let edad: number[] = new Array(num);
-let altura: number[] = new Array(num);
-cargarPersonas(nombres, edad, altura, num);
-console.log("Sin ordenar");
-escribirPorPantalla(nombres, edad, altura, num);
-console.log("Ordenado");
-burbuja(nombres, edad, altura, num);
-escribirPorPantalla(nombres, edad, altura, num);
+let num: number = Number(prompt("Cantidad de personas: "));
+if (num) {
+  let nombres: string[] = new Array(num);
+  let edad: number[] = new Array(num);
+  let altura: number[] = new Array(num);
+  cargarPersonas(nombres, edad, altura, num);
+  console.log("Sin ordenar");
+  escribirPorPantalla(nombres, edad, altura, num);
+  console.log("Ordenado");
+  burbuja(nombres, edad, altura, num);
+  escribirPorPantalla(nombres, edad, altura, num);
+}
