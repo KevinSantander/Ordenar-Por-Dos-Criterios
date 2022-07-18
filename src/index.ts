@@ -9,7 +9,6 @@ function cargarPersonas(
     edad[indice] = Number(prompt("Edad: "));
     altura[indice] = Number(prompt("Altura (en cm): "));
   }
-  console.log();
 }
 
 function escribirPorPantalla(
